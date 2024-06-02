@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #comment-section {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #98fb98;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .comment {
+      margin-bottom: 10px;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+  <title>Responsive Comment Section</title>
+</head>
+<body>
+
+  <div id="comment-section">
+    <h2>Comments</h2>
+
+    <div id="comments-container">
+      <!-- Existing comments will be added here -->
+    </div>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Your name">
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" placeholder="Your comment"></textarea>
+
+    <button onclick="addComment()">Submit</button>
+  </div>
+
+ 
+
+  <script>
+    function addComment() {
+      var nameInput = document.getElementById('name');
+      var commentInput = document.getElementById('comment');
+
+      var name = nameInput.value.trim();
+      var comment = commentInput.value.trim();
+
+      if (name !== '' && comment !== '') {
+        var commentsContainer = document.getElementById('comments-container');
+
+        var commentDiv = document.createElement('div');
+        commentDiv.className = 'comment';
+
+        var deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-btn';
+        deleteButton.innerHTML = 'Delete';
+        deleteButton.onclick = function() {
+          commentsContainer.removeChild(commentDiv);
+        };
+
+        var commentText = document.createElement('p');
+        commentText.innerHTML = '<strong>' + name + ':</strong> ' + comment;
+
+        commentDiv.appendChild(commentText);
+        commentDiv.appendChild(deleteButton);
+
+        commentsContainer.appendChild(commentDiv);
+
+        // Clear input fields
+        nameInput.value = '';
+        commentInput.value = '';
+      }
+    }
+  </script>
+ 
+<box-icon type='logo' name='twitter'></box-icon>
+<p>&copy;</p>
+</body>
+</html>

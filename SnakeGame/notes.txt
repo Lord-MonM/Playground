@@ -1,0 +1,2 @@
+snakepanel is 600x 600px with a 24 x 24 columnsS
+tile size is 25x25
