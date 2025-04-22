@@ -1,2 +1,2 @@
-# JavaProjects
-display of my little java projects
+# Animation Projects
+display of my little animation projects
